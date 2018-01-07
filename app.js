@@ -7,9 +7,8 @@ const yargs = require('yargs');
 const notes = require('./notes.js');
 
 const argv = yargs.argv;
-var command = process.argv[2];
+var command = argv._[0];
 console.log('Command: ', command);
-console.log('Process: ', process.argv);
 console.log('Yargs: ', argv);
 
 switch (command) {
