@@ -1,5 +1,7 @@
 console.log('Starting notes.js');
 
+const notesFile = require('./playground/json');
+
 var addNote = (title, body) => {
   console.log('Adding note', title, body);
 };
