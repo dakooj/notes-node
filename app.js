@@ -18,9 +18,7 @@ switch (command) {
 
     if (note) {
       console.log('Note created');
-      console.log('--');
-      console.log(`Title: ${note.title}`);
-      console.log(`Body: ${note.body}`);
+      notes.logNote(note);
     } else {
       console.log('Note title already in use.');
     }
@@ -35,9 +33,7 @@ switch (command) {
 
     if (note) {
       console.log('Note found');
-      console.log('--');
-      console.log(`Title: ${note.title}`);
-      console.log(`Body: ${note.body}`);
+      notes.logNote(note);
     } else {
       console.log('Note not found.');
     }
@@ -45,7 +41,6 @@ switch (command) {
   case 'remove':
     console.log('Removing note');
     var noteRemoved = notes.removeNote(argv.title);
-    console.log(noteRemoved);
     var message = noteRemoved ? `Note was removed` : `Note not found`;
     console.log(message);
     break;
