@@ -16,8 +16,11 @@ switch (command) {
     console.log('Adding new note');
     var note = notes.addNote(argv.title, argv.body);
 
-    if (!_.isEmpty(note)) {
-      console.log('Note created', argv.title, argv.body);
+    if (note) {
+      console.log('Note created');
+      console.log('--');
+      console.log(`Title: ${note.title}`);
+      console.log(`Body: ${note.body}`);
     } else {
       console.log('Note title already in use.');
     }
@@ -33,6 +36,15 @@ switch (command) {
   case 'remove':
     console.log('Removing note');
     notes.removeNote(argv.title);
+
+    // if (note) {
+    //   console.log('Note removed');
+    //   console.log('--');
+    //   console.log(`Title: ${note.title}`);
+    //   console.log(`Body: ${note.body}`);
+    // } else {
+    //   console.log('No note with that title.');
+    // }
     break;
   default:
     console.log('Command not recognized');
