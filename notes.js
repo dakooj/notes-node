@@ -37,13 +37,17 @@ var getAll = () => {
 };
 
 var getNote = (title) => {
-  console.log('Getting note', title);
+  var notes = fetchNotes();
+  var note = notes.filter((note) => note.title === title);
+  return note[0];
 };
 
 var removeNote = (title) => {
   var notes = fetchNotes();
   var newNotes = notes.filter((note) => note.title !== title);
   saveNotes(newNotes);
+
+  return notes.length !== newNotes.legth;
 };
 
 module.exports = {

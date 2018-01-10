@@ -31,20 +31,23 @@ switch (command) {
     break;
   case 'read':
     console.log('Fetching note');
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+
+    if (note) {
+      console.log('Note found');
+      console.log('--');
+      console.log(`Title: ${note.title}`);
+      console.log(`Body: ${note.body}`);
+    } else {
+      console.log('Note not found.');
+    }
     break;
   case 'remove':
     console.log('Removing note');
-    notes.removeNote(argv.title);
-
-    // if (note) {
-    //   console.log('Note removed');
-    //   console.log('--');
-    //   console.log(`Title: ${note.title}`);
-    //   console.log(`Body: ${note.body}`);
-    // } else {
-    //   console.log('No note with that title.');
-    // }
+    var noteRemoved = notes.removeNote(argv.title);
+    console.log(noteRemoved);
+    var message = noteRemoved ? `Note was removed` : `Note not found`;
+    console.log(message);
     break;
   default:
     console.log('Command not recognized');
