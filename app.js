@@ -41,7 +41,6 @@ switch (command) {
   case 'remove':
     console.log('Removing note');
     var noteRemoved = notes.removeNote(argv.title);
-    console.log(noteRemoved);
     var message = noteRemoved ? `Note was removed` : `Note not found`;
     console.log(message);
     break;
